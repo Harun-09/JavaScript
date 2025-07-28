@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+
+    // class Calculator{
+    //   add(a,b){
+    //     return a+b
+    //   }
+    // sub(a,b){
+    //   return a-b
+    // }
+    // div(a,b){
+    //   return a/b
+    // }
+    // mul(a,b){
+    //   return a*b
+    // }
+    // static fullname(firstN, lastN){
+    //        return `${firstN} ${lastN}`;
+    //    }
+
+    // }
+
+
+
+    // let addition = new Calculator();
+    //  console.log(addition.add(5,6));
+
+    //   let subtraction = new Calculator();    
+    // console.log(subtraction.sub(8,5));
+
+    // let division = new Calculator();
+    // console.log(division.div(10,5));
+
+    // let multiplication = new Calculator();
+    // console.log(multiplication.mul(3,4));
+
+    // console.log(Calculator.fullname("abir","hasan"));
+
+
+
+
+    // 1. Create a date object for current date and time
+
+    // const now = new Date();
+    // console.log("Current Date & Time", now);
+
+
+
+
+    // 2. Create a specific date
+
+    // const birthday = new Date('01-03-1999');
+    // console.log("Birthday:", birthday);
+
+
+
+    // 3. Extract parts of the date
+
+    const now = new Date();
+    // console.log("Year:", now.getFullYear());
+
+    // console.log("Month (0-11):", now.getMonth());
+
+    // console.log("Date (Day of Month):", now.getDate());
+
+    // console.log("Day of Week (0-6):", now.getDay());
+
+    // console.log("Hours:", now.getHours());
+
+    //  console.log("Minutes:", now.getMinutes());
+
+    //  console.log("Seconds:", now.getSeconds());
+
+
+    // 4. Modify parts of the date
+
+    let futureDate = new Date();
+    // futureDate.setFullYear(2030);
+    // console.log("Future Date:", futureDate);
+
+    // futureDate.setDate(25);
+    // console.log("Modified Future Date:", futureDate);
+
+
+
+    // 5. Date to timestamp (milliseconds since Jan 1, 1970)
+
+
+    // const timestamp = now.getTime();
+    // console.log("Timestamp (ms):", timestamp);
+
+
+
+
+    // 6. Difference between two dates
+
+    //  const startDate = new Date('2025-01-01');
+    // const endDate = new Date('2025-03-16');
+    // const diffMs = endDate - startDate;
+    // const diffDays = diffMs / (1000 * 60 * 60 * 24);
+    // console.log(`Difference: ${diffDays} days`);
+
+
+
+
+    // 7. Formatting dates
+
+    // console.log("Date String:", now.toDateString());
+
+    // console.log("Time String:", now.toTimeString());
+
+    // console.log("ISO Format:", now.toISOString());
+
+    // console.log("Locale Date:", now.toLocaleDateString());
+
+    // console.log("Locale Time:", now.toLocaleTimeString());
+
+
+
+    // 8. Countdown example (until New Year)
+
+    // const newYear = new Date('2026-01-01');
+    // const timeLeftMs = newYear - now;
+    // const daysLeft = Math.floor(timeLeftMs / (1000 * 60 * 60 * 24));
+    // console.log(`Days until New Year 2026: ${daysLeft} days`);
+
+    //9. Real-time clock (updates every second)
+
+    // setInterval(() => {
+    // const time = new Date();
+    // console.log("⏰ 🍟🍟Time Now:", time.toLocaleTimeString());
+    // }, 2000);
+
+
+
+
+
+
+    // 1. Function Declaration
+
+
+    // function fullname(first_name, last_name, greeting= "Hello"){
+
+    //   console.log(`${greeting} ${first_name} ${last_name}`);
+    // }
+
+    // fullname("Mahmud", "Hasan")
+
+
+
+    // const anonymousFunction = function () {
+    //     console.log("i am annonymus function");
+    // }
+
+    // anonymousFunction();
+
+
+    // const add = function (a , b) {
+    //     return a + b;
+    // }
+    // console.log(add(5,6));
+
+
+
+
+    // const sub = (a, b) => {
+    //     return a - b;
+    // }
+    // console.log(sub(5, 6));
+
+
+
+    // const div = (a, b) => a / b;
+    // console.log(div(10,5));
+
+
+    // const div = (a, b) => a * b;
+    //  console.log(div(10,5));
+
+
+    // const greet = name => `Hello ${name}`;
+    // console.log(greet("Harun or Rashid"));
+
+
+
+    // (() => {
+    //     return console.log("i am immidiely invoked function");
+    // })()
+
+
+
+    // callback function
+
+    // function hello(name, Callback){
+    //     return `Hello ${name}  ${Callback}`
+    // }
+    //  function goTo(){
+    //   return "Go to Your Room"
+    // }
+    // console.log(hello("hasan", goTo()));
+
+
+    // function hello2(name, Callback){
+    //    return `Hello ${name}  ${Callback()}`
+    // }
+    // console.log(hello2("Masud", ()=>{ return "Valu hoye Jao"}));
+
+
+
+    // higher order function
+
+    // const division= (a , b)=>{
+    //    return   a/b;
+    // }
+
+
+    // const divided = division(10,5);
+    // console.log(divided);
+
+
+
+    // function multiplier(factor) {
+    //     return function(number) {
+    //         return number * factor;
+    //     };
+    // }
+    // const double = multiplier(2);
+
+
+    // console.log(double(10));
+
+
+
+    // function greet(name) {
+    //     // return "Hello, " + name + "!";
+    //     return `Hello ${name} !`;
+    // }
+
+    // let a = greet("Hasan");
+
+
+    // console.log(greet("Hasan"));
+
+
+
+    // // 2. Function with Default Parameters
+    // function greetUser(name = "Guest") {
+    //     return "Welcome, " + name + "!";
+    // }
+
+
+    // // 3. Anonymous Function
+    // const anonymousFunc = function() {
+    //     console.log("This is an anonymous function.");
+    // };
+    // anonymousFunc();
+
+    // // 4. Function Expression
+    // const add = function(a, b) {
+    //     return a + b;
+    // };
+
+    // // 5. Arrow Function
+    // const multiply = (a, b) => a * b;
+
+    // // 6. Arrow Function with Block Body
+    // const subtract = (a, b) => {
+    //     return a - b;
+    // };
+
+    // // 7. Immediately Invoked Function Expression (IIFE)
+    // (function() {
+    //     console.log("This function runs immediately!");
+    // })();
+
+
+
+    // // 8. Rest Parameters
+    // function sum(...numbers) {
+    //     return numbers.reduce((acc, num) => acc + num, 0);
+    // }
+
+    // 9. Callback Function
+    // function start(){
+    //     setTimeout(() => {
+    //         let date= new Date();
+    //         console.log( date.toLocaleTimeString())
+    //         start()
+    //     }, 1000);
+    // }
+
+    // start()
+
+    // 10. Higher-Order Function (Returning Function)
+    // function multiplier(factor) {
+    //     return function(number) {
+    //         return number * factor;
+    //     };
+    // }
+    // const double = multiplier(2);
+    // console.log(double(10));
+
+
+    // function (a:Number , b:Numbrr):Number {
+    //    return a+b;
+    //  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Important JavaScript Array Methods
+
+
+
+
+    // 1. push() - Adds elements to the end
+
+
+    // let numbers = [1, 2, 3, 4, 5];
+    // let fruits = ["Apple", "Banana", "Cherry", "Date"];
+    // console.log(numbers);
+    // console.log(fruits);
+
+    // numbers.push(6);
+    // fruits.push("Pinapple");
+    // console.log(numbers);
+    // console.log(fruits);
+
+
+
+
+
+    // 2. pop() - Removes the last element
+
+
+    // let numbers = [1, 2, 3, 4, 5];
+    // let fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+    // numbers.pop();
+    // fruits.pop();
+
+    // console.log(numbers);
+    // console.log(fruits);
+
+
+
+
+
+    // 4. unshift() - Adds elements to the beginning
+
+
+    // let numbers = [1, 2, 3, 4, 5];
+    // let fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+    // numbers.unshift(0);
+    // fruits.unshift("Orenge");
+
+    // console.log(numbers);
+    // console.log(fruits);
+
+
+
+
+
+    // 3. shift() - Removes the first element
+
+    // let numbers = [1, 2, 3, 4, 5];
+    // let fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+    // numbers.shift();
+    // fruits.shift();
+
+    // console.log(numbers);
+    // console.log(fruits);
+
+
+
+
+
+
+    // 5. concat() - Merges two arrays
+
+
+    // let numbers = [1, 2, 3, 4, 5];
+    // let fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+    // let a = numbers.concat(fruits);
+    // let b = [...numbers, ...fruits]  //spread operator
+
+    // console.log(a);
+    // console.log(b);
+    // console.log(fruits);
+
+
+
+
+
+    // 6. slice() - Extracts a section of an array
+
+
+    // let numbers = [1, 2, 3, 4, 5];
+    // let fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+    // let a = numbers.slice(2, 4);
+    // let b = fruits.slice(1, 3);
+
+    // console.log(a);
+    // console.log(b);
+    // console.log(fruits);
+
+
+
+
+
+
+
+
+    // 7. splice() - Adds/Removes/replace elements in place
+
+
+    // let numbers = [1, 2, 3, 4, 5];
+    // let fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+    // let b = fruits.splice(4, 0, "Orange", "Plum");
+    // fruits.splice(3, 0, "Plum", "Pinapple");
+
+
+    // console.log(b);
+    // console.log(fruits);
+
+
+
+    // let fruits = ["Apple", "Banana", "Cherry"];
+    // fruits.splice(1, 0, "Orange", "Plum");
+    // console.log(fruits);
+
+
+    // let fruits = ["Apple", "Banana", "Cherry", "Date"];
+    // let removed = fruits.splice(1, 2);
+    // console.log(fruits);  // ["Apple", "Date"]
+    // console.log(removed); // ["Banana", "Cherry"]
+
+
+    // let fruits = ["Apple", "Banana", "Cherry"];
+    // fruits.splice(1, 1, "Mango");
+    // console.log(fruits);
+    // // Output: ["Apple", "Mango", "Cherry"]
+
+
+    // let fruits = ["Apple", "Banana"];
+    // fruits.splice(fruits.length, 0, "Kiwi");
+    // console.log(fruits);
+    // Output: ["Apple", "Banana", "Kiwi"]
+
+
+
+
+
+
+
+
+    // 8. indexOf() - Finds the  index of an element first element
+
+
+    // numbers = [1, 2, 3, 4, 5];
+    // fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+    // let a = numbers.indexOf(4);
+    // let b = fruits.indexOf("Apple");
+
+    // console.log(a);
+    // console.log(b);
+
+
+
+
+
+
+    // 9. includes() - Checks if an array contains an element
+    // (Give ans true/false)
+
+    // fruits = ["Apple", "Banana", "Cherry", "Date"];
+    // console.log(fruits);
+    // let b = fruits.includes("PinApple");
+    // console.log(b);
+
+
+
+
+
+    //  10. forEach() - Iterates over an array
+
+
+    //  fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+    // fruits.forEach((fruits)=>{
+    //     console.log(fruits);
+    // });
+
+
+    // fruits.forEach((fruits, index) =>{
+    //     console.log(index)
+    // });
+
+
+
+
+
+// 11. map() - Creates a new array by transforming each element
+
+// fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+//   let fruits2=  fruits.map((fruit)=>{
+//        if(fruit == "Apple"){
+//          return `${fruit}:380`;
+//        }else if(fruit == "Banana"){
+//          return `${fruit}(12piece):120`;
+//        }else if(fruit == "Cherry"){
+//          return `${fruit}:370`;
+//        }else{
+//          return `${fruit}:1250`;
+//        }
+//    });
+
+
+// console.log(fruits2);
+//  console.log(fruits);
+
+
+
+
+
+
+
+
+// 12. filter() - Filters elements based on a condition
+
+//  numbers = [1, 2, 3, 4, 5];
+
+// const num2 =numbers.filter((num)=>{
+//    return num < 2
+// });
+//  console.log(num2);
+// console.log(numbers);
+
+
+
+
+// let sales= [
+//     {id:2, name: "Kamal" , age:30, total:1000},
+//     {id:3, name: "Masuma" , age:20, total:1500},
+//     {id:4, name: "Khaled" , age:6, total:50},
+//     {id:1, name: "Masud" , age:25, total:2000},
+//     {id:5, name: "Rahman" , age:40, total:500},
+//     {id:6, name: "Jamal" , age:60, total:800},
+// ]
+
+//  let upto1000Tk= sales.filter((s)=>{
+//         return s.total >1000;
+//  })
+// console.log(upto1000Tk);
+
+
+//  let total= (data)=>{
+//    let netTotal=0;
+//    data.filter((s)=>{
+//      if(s.age > 18){
+//        netTotal+= s.total;
+//      }
+//    });
+
+//    return netTotal;
+
+// }
+
+// console.log(total(sales))
+
+
+
+
+
+// 14. find() - Finds the first element that matches a condition
+
+
+//  numbers = [1, 2, 3, 4, 5];
+// const num3 = numbers.find((num)=>{
+//      return num > 2
+// })
+
+// console.log(num3)
+
+
+
+
+
+// 13. reduce() - Reduces array to a single value
+
+
+// let sales= [
+//     {id:2, name: "Kamal" , age:30, total:1000},
+//     {id:3, name: "Masuma" , age:20, total:1500},
+//     {id:4, name: "Khaled" , age:6, total:50},
+//     {id:1, name: "Masud" , age:25, total:2000},
+//     {id:5, name: "Rahman" , age:40, total:500},
+//     {id:6, name: "Jamal" , age:60, total:800},
+// ]
+
+// let totalsell= sales.reduce((total , sale )=>{return total + sale.total },0);
+// console.log(totalsell);
+
+
+
+
+// let saleTotal=0;
+// sales.forEach(sale =>{
+//   saleTotal+=sale.total;
+// });
+
+// console.log(saleTotal);
+
+
+
+
+// 16. sort() - Sorts an array
+
+//  numbers = [1, 2, 3, 4, 5,99,55,88];
+
+// const sort=  numbers.sort();
+// console.log(sort)
+
+
+
+
+
+// 17. reverse() - Reverses an array
+
+
+//  fruits = ["Apple", "Cherry", "Date" , "Banana"];
+
+//  const fr=  fruits.sort().reverse();
+// console.log(fr);
+
+
+
+
+
+
+// 18. join() - Converts array to a string
+
+
+//  fruits = ["Apple", "Cherry", "Date" , "Banana"];
+
+// const fr= fruits.join();
+// console.log(fr);
+
+
+// const fr= fruits.join().split(",");
+// console.log(fr);
+
+
+
+
+// 19. some() - Checks if any element meets a condition
+
+
+
+//  fruits = ["Apple", "Cherry", "Date" , "Banana"];
+
+// const fr= fruits.some((fr)=> fr === "Apple" );
+// console.log(fr);
+
+
+//  numbers = [1, 2, 3, 4, 5,99,55,88];
+
+
+// const nm1 = numbers.some((n)=> n > 2)
+// console.log(nm1);
+
+
+
+// 20. every() - Checks if all elements meet a condition
+
+//  numbers = [1, 2, 3, 4, 5,99,55,88];
+
+// const nm = numbers.every((n)=> n > 0)
+// console.log(nm);
+
+
+
+
+  </script>
+</body>
+
+</html>
