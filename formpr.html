@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Form Validation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .error-msg {
+      font-size: 12px;
+      color: red;
+      display: none;
+    }
+    input, select, textarea {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <div class="card shadow p-4">
+      <h3 class="text-center mb-4">Registration Form</h3>
+      <form id="f" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" onblur="FormValidation.namevalidation()">
+          <div class="error-msg namevalidation">Please enter a valid name (4-6 letters only)</div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="text" id="email" name="email" class="form-control" placeholder="example@mail.com">
+          <div class="error-msg emailvalidation">Please provide a valid Email</div>
+        </div>
+        <div class="mb-3">
+          <label for="city" class="form-label">City</label>
+          <select name="city" id="city" class="form-select">
+            <option value="Dhaka">Dhaka</option>
+            <option value="Khulna">Khulna</option>
+            <option value="Rajshahi">Rajshahi</option>
+            <option value="Barishal">Barishal</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Gender</label><br>
+          <div class="form-check form-check-inline">
+            <input type="radio" id="Male" name="gender" value="Male" class="form-check-input">
+            <label for="Male" class="form-check-label">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" id="Female" name="gender" value="Female" class="form-check-input">
+            <label for="Female" class="form-check-label">Female</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Subjects</label><br>
+          <div class="form-check form-check-inline">
+            <input type="checkbox" id="Bangla" name="subject" value="Bangla" class="form-check-input">
+            <label for="Bangla" class="form-check-label">Bangla</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="checkbox" id="English" name="subject" value="English" class="form-check-input">
+            <label for="English" class="form-check-label">English</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="checkbox" id="Math" name="subject" value="Math" class="form-check-input">
+            <label for="Math" class="form-check-label">Math</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="checkbox" id="ICT" name="subject" value="ICT" class="form-check-input">
+            <label for="ICT" class="form-check-label">ICT</label>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="comment" class="form-label">Comment</label>
+          <textarea id="comment" name="comment" class="form-control" rows="3" placeholder="Write your comment"></textarea>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+class FormValidation {
+  static formSubmit() {
+    let form = document.getElementById("f");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let city = document.getElementById("city").value;
+      let comment = document.getElementById("comment").value.trim();
+
+      let selectedGender = "";
+      let selectedSubject = "";
+
+      let gender = document.getElementsByName("gender");
+      let subject = document.getElementsByName("subject");
+
+      Array.from(gender).forEach((g) => {
+        if (g.checked) {
+          selectedGender += g.value;
+        }
+      });
+
+      Array.from(subject).forEach((s) => {
+        if (s.checked) {
+          selectedSubject += s.value + " ";
+        }
+      });
+
+      if (!FormValidation.checkName() || !FormValidation.checkEmail()) {
+        return;
+      }
+
+      let w = open("", "_blank", "width=500,height=400");
+      w.document.write(`<h4>Name: ${name}</h4>`);
+      w.document.write(`<p>Email: ${email}</p>`);
+      w.document.write(`<p>City: ${city}</p>`);
+      w.document.write(`<p>Gender: ${selectedGender}</p>`);
+      w.document.write(`<p>Subject: ${selectedSubject}</p>`);
+      w.document.write(`<p>Comment: ${comment}</p>`);
+      w.document.write(`<button onclick="self.close()">Close</button>`);
+      w.document.write(`<button onclick="print()">Print</button>`);
+    });
+  }
+
+  static checkName() {
+    let name = document.getElementById("name").value.trim();
+    let pattern = /^[a-zA-Z]{4,6}$/;
+    let nametest = pattern.test(name);
+    let nameField = document.getElementById("name");
+    if (nametest) {
+      nameField.style.border = "2px solid green";
+      document.getElementsByClassName("namevalidation")[0].style.display =
+        "none";
+      return true;
+    } else {
+      nameField.style.border = "2px solid red";
+      document.getElementsByClassName("namevalidation")[0].style.display =
+        "block";
+      return false;
+    }
+  }
+
+  static namevalidation() {
+    FormValidation.checkName();
+  }
+
+  static checkEmail() {
+    let email = document.getElementById("email").value.trim();
+    let emailPattern = /^[a-zA-Z0-9]{3,}[@][a-z]{3,}[.][a-z]{2,}$/;
+    let emailField = document.getElementById("email");
+    if (emailPattern.test(email)) {
+      emailField.style.border = "2px solid green";
+      document.getElementsByClassName("emailvalidation")[0].style.display =
+        "none";
+      return true;
+    } else {
+      emailField.style.border = "2px solid red";
+      document.getElementsByClassName("emailvalidation")[0].style.display =
+        "block";
+      return false;
+    }
+  }
+
+  static emailValidation() {
+    let mail = document.getElementById("email");
+    if (!mail) return;
+    mail.addEventListener("blur", function () {
+      FormValidation.checkEmail();
+    });
+  }
+}
+
+// ✅ Auto Initialize
+document.addEventListener("DOMContentLoaded", () => {
+  FormValidation.formSubmit();
+  FormValidation.emailValidation();
+});
+  </script>
+</body>
+</html>
