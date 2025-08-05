@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Validation Example</title>
+<style>
+  .error {
+    font-size: 12px;
+    color: red;
+    display: none;
+  }
+  input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+</style>
+</head>
+<body>
+  <form id="myForm">
+    <label>Username</label>
+    <input type="text" id="username" />
+    <div class="error" id="userError">Username must be 4-10 letters only</div>
+
+    <label>Password</label>
+    <input type="password" id="password" />
+    <div class="error" id="passError">Password must be 6+ chars & contain a number</div>
+
+    <label>Phone</label>
+    <input type="text" id="phone" />
+    <div class="error" id="phoneError">Phone must be 11 digits starting with 01</div>
+
+    <input type="submit" value="Submit" />
+  </form>
+
+  <script src="validation.js"></script>
+</body>
+</html>
