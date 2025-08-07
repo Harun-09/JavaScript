@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Add to Cart with LocalStorage</title>
+  <style>
+    button {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Products</h2>
+  <div id="productList"></div>
+
+  <h2>Cart</h2>
+  <div id="cart"></div>
+
+  <script>
+    class Product {
+      constructor(id, name, price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+      }
+    }
+
+    class CartItem {
+      constructor(product) {
+        this.product = product;
+        this.quantity = 1;
+      }
+    }
+
+    class Cart {
+      constructor() {
+        this.items = [];
+      }
+
+      saveCart() {
+        localStorage.setItem("cart", JSON.stringify(this.items));
+      }
+
+      loadCart() {
+        let data = localStorage.getItem("cart");
+        if (data) {
+          let itemsArray = JSON.parse(data);
+          this.items = itemsArray.map(item => {
+            let product = new Product(item.product.id, item.product.name, item.product.price);
+            let cartItem = new CartItem(product);
+            cartItem.quantity = item.quantity;
+            return cartItem;
+          });
+          this.displayCart();
+        }
+      }
+
+      addToCart(product) {
+        let found = this.items.find(item => item.product.id === product.id);
+        if (found) {
+          found.quantity++;
+        } else {
+          this.items.push(new CartItem(product));
+        }
+        this.saveCart();
+        this.displayCart();
+      }
+
+      removeFromCart(index) {
+        this.items.splice(index, 1);
+        this.saveCart();
+        this.displayCart();
+      }
+
+      increaseQuantity(index) {
+        this.items[index].quantity++;
+        this.saveCart();
+        this.displayCart();
+      }
+
+      decreaseQuantity(index) {
+        if (this.items[index].quantity > 1) {
+          this.items[index].quantity--;
+        } else {
+          this.removeFromCart(index);
+        }
+        this.saveCart();
+        this.displayCart();
+      }
+
+      getTotalPrice() {
+        let total = 0;
+        this.items.forEach(item => {
+          total += item.product.price * item.quantity;
+        });
+        return total;
+      }
+
+      displayCart() {
+        let cartDiv = document.getElementById("cart");
+        cartDiv.innerHTML = "";
+
+        this.items.forEach((item, index) => {
+          let p = document.createElement("p");
+          p.innerHTML = `
+            ${item.product.name} - ${item.quantity} pcs - ${item.product.price * item.quantity} ৳
+            <button class="decrease-btn">-</button>
+            <button class="increase-btn">+</button>
+            <button class="remove-btn">Remove</button>
+          `;
+
+          p.querySelector(".remove-btn").addEventListener("click", () => {
+            this.removeFromCart(index);
+          });
+
+          p.querySelector(".increase-btn").addEventListener("click", () => {
+            this.increaseQuantity(index);
+          });
+
+          p.querySelector(".decrease-btn").addEventListener("click", () => {
+            this.decreaseQuantity(index);
+          });
+
+          cartDiv.appendChild(p);
+        });
+
+        let totalP = document.createElement("p");
+        totalP.style.fontWeight = "bold";
+        totalP.textContent = `Total Price: ${this.getTotalPrice()} ৳`;
+        cartDiv.appendChild(totalP);
+      }
+    }
+
+    let products = [
+      new Product(1, "Alu", 10),
+      new Product(2, "Potol", 20),
+      new Product(3, "Begun", 15),
+    ];
+
+    let myCart = new Cart();
+    myCart.loadCart();
+
+    let productList = document.getElementById("productList");
+
+    products.forEach(product => {
+      let div = document.createElement("div");
+
+      div.innerHTML = `
+        <h3>${product.name}</h3>
+        <p>Price: ${product.price} ৳</p>
+        <button>Add to Cart</button>
+        <hr>
+      `;
+
+      div.querySelector("button").addEventListener("click", () => {
+        myCart.addToCart(product);
+      });
+
+      productList.appendChild(div);
+    });
+  </script>
+</body>
+</html>
