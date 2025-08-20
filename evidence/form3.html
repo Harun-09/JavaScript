@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="f" name="f">
+        <div>
+            <label for="name" style="display:block;">Name</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="email" style="display:block;">Email</label>
+            <input type="text" name="email" id="email">
+        </div>
+        <div>
+            <label for="city">City</label>
+            <select name="city" id="city">
+                <option value="Dhaka">Dhaka</option>
+                <option value="Khulna">Khulna</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Barishal">Barishal</option>
+            </select>
+        </div>
+        <div>
+            <label for="gender">Gender</label>
+            <label for="Male">male
+                <input type="radio" name="gender" id="Male" value="Male">
+            </label>
+            <label for="Female">Female
+                <input type="radio" name="gender" id="Female" value="Female">
+            </label>
+        </div>
+        <div>
+            <label for="Bangla">Bangla
+                <input type="checkbox" name="subject" id="Bangla" value="Bangla">
+            </label>
+            <label for="English">English
+                <input type="checkbox" name="subject" id="English" value="English">
+            </label>
+            <label for="Math">Math
+                <input type="checkbox" name="Math" id="Math" value="Math">
+            </label>
+            <label for="Ict">Ict
+                <input type="checkbox" name="Ict" id="Ict" value="Ict">
+            </label>
+        </div>
+        <div>
+            <label for="comment" style="display:block;">Comment</label>
+            <textarea name="comment" id="comment"></textarea>
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+
+    </form>
+
+
+
+    <script>
+        let form = document.getElementById("f");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let city = document.getElementById("city").value;
+            let comment = document.getElementById("comment").value;
+
+            let selectedGender = "";
+            let selectedSubject = "";
+
+            let gender = document.getElementsByName("gender");
+            let subject = document.getElementsByName("subject");
+
+            Array.from(gender).forEach((g) => {
+                if (g.checked) {
+                    selectedGender += g.value;
+                }
+            });
+            Array.from(subject).forEach((s) => {
+                if (s.checked) {
+                    selectedSubject += s.value + " ";
+                }
+            });
+
+
+            let w = open("", "_blank", "width=500,height=500");
+            w.document.write(`<h4>Name:${name}</h4>`);
+            w.document.write(`<p>Email:${email}</p>`);
+            w.document.write(`<p>City:${city}</p>`);
+            w.document.write(`<p>Gender:${gender}</p>`);
+            w.document.write(`<p>Subject:${subject}</p>`);
+            w.document.write(`<p>comment:${comment}</p>`);
+          w.document.write(`<button onclick="self.close()">close</button>`);
+          w.document.write(`<button onclick="print()">Print</button>`);
+
+
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

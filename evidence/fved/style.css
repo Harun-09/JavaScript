@@ -1,0 +1,37 @@
+ *{ box-sizing: border-box; }
+  body{
+    margin:0; padding:0;
+    font-family: Arial, sans-serif;
+    background-color: #444;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+  }
+  form{
+    background-color: #333;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  }
+  form div{ margin-bottom: 15px; }
+  label{ display:block; margin-bottom:5px; font-weight:bold; }
+  input[type="text"], select, textarea{
+    width:100%; padding:10px; border-radius:6px;
+    border:1px solid #ccc; font-size:16px;
+  }
+  input[type="radio"], input[type="checkbox"]{ margin-right:5px; }
+  textarea{ resize: vertical; min-height: 80px; }
+  .validation{
+    color:#ff6b6b; font-size:14px;
+    display:none; margin-top:5px;
+  }
+  input[type="submit"]{
+    background-color:#1abc9c; color:#fff; border:none;
+    padding:12px 20px; border-radius:8px;
+    cursor:pointer; font-size:16px;
+  }
+  input[type="submit"]:hover{ background-color:#16a085; }

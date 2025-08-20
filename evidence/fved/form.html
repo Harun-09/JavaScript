@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<form id="f" name="f">
+  <div>
+    <label for="name">Name :</label>
+    <input type="text" id="name" name="name" placeholder="Letters, space, dot, hyphen allowed">
+    <div class="namevalidation validation">Invalid Name</div>
+  </div>
+
+  <div>
+    <label for="email">Email :</label>
+    <input type="text" id="email" name="email" placeholder="example@gmail.com">
+    <div class="emailvalidation validation">Invalid Email</div>
+  </div>
+
+  <div>
+    <label for="phone">Phone :</label>
+    <input type="text" id="phone" name="phone" placeholder="017XXXXXXXX or +88017XXXXXXXX">
+    <div class="phonevalidation validation">Invalid Phone</div>
+  </div>
+
+  <div>
+    <label for="city">City :</label>
+    <select name="city" id="city">
+      <option value="">Select City</option>
+      <option value="Dhaka">Dhaka</option>
+      <option value="Khulna">Khulna</option>
+      <option value="Rajshahi">Rajshahi</option>
+      <option value="Barishal">Barishal</option>
+    </select>
+  </div>
+
+  <div>
+    <label>Gender :</label>
+    <label><input type="radio" name="gender" value="Male"> Male</label>
+    <label><input type="radio" name="gender" value="Female"> Female</label>
+  </div>
+
+  <div>
+    <label>Subjects :</label>
+    <label><input type="checkbox" name="subject" value="Bangla"> Bangla</label>
+    <label><input type="checkbox" name="subject" value="English"> English</label>
+    <label><input type="checkbox" name="subject" value="Math"> Math</label>
+    <label><input type="checkbox" name="subject" value="ICT"> ICT</label>
+  </div>
+
+  <div>
+    <label for="comment">Comment :</label>
+    <textarea id="comment" name="comment" placeholder="Write something..."></textarea>
+  </div>
+
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>
+
+<script src="formValidation.js"></script>
+
+<script>
+
+// Initialize
+FormValidation.formSubmit();
+FormValidation.nameValidation();
+FormValidation.emailValidation();
+FormValidation.phoneValidation();
+</script>
+
+</body>
+</html>

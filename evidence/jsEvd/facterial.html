@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+    <form action="" id="f">
+       <label for="num">Give me a Number</label> <br>
+       <input type="number" id="num"  > <br>  <br>
+       <button type="submit">Submit</button>
+    </form>
+     <h1 id="result"></h1>
+    <script>
+
+      let form = document.getElementById("f");
+
+      form.addEventListener("submit" , function(event){
+         event.preventDefault()
+        let number = Number(document.getElementById("num").value);
+        let res = document.getElementById("result");
+
+      
+         if(IsPrime(number)){
+            res.innerText= `${number} is a Prime Number`;
+         }else{
+              res.innerText= `${number} is not a Prime Number`;
+         }
+      });
+
+      function IsPrime(num){
+        if(num < 2) { return false}  
+        for(let i = 2 ; i< num ;  i++){
+            if(num % i === 0){
+              return false;
+            }
+        }
+         return true;
+      }
+
+
+    </script>
+</body>
+</html>

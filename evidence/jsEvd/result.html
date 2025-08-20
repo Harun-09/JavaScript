@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Show the Result</h1>
+
+    <form action="" id="form">
+      <label for="Number1">Give the percentage Number</label> <br>
+      <input type="text" name="" id="Number1" /> <br /> <br>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div>
+      <h1 id="result"></h1>
+    </div>
+
+    <script>
+      let form = document.getElementById("form");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let Number1 = Number(document.getElementById("Number1").value);
+        let result = document.getElementById("result");
+
+        if (Number1 >= 80 && Number1 <=100 ) {
+            result.innerText= "A+"
+        }else if(Number1 >= 70 && Number1 <=79 ) {
+            result.innerText= "A"
+        }else{
+           result.innerText= "Fail"
+        }
+
+      });
+    </script>
+  </body>
+</html>
