@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Largest Number</h1>
+
+    <form action="" id="largestNumber">
+      <label for="Number1">Number1</label>
+      <input type="text" name="" id="Number1" /> <br />
+      <label for="Number2">Number2</label>
+      <input type="text" name="" id="Number2" /> <br />
+      <label for="Number3">Number3</label>
+      <input type="text" name="" id="Number3" /> <br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div>
+      <h1 id="result"></h1>
+    </div>
+
+    <script>
+      let form = document.getElementById("largestNumber");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let Number1 = Number(document.getElementById("Number1").value);
+        let Number2 = Number(document.getElementById("Number2").value);
+        let Number3 = Number(document.getElementById("Number3").value);
+        let result = document.getElementById("result");
+
+        if (Number1 > Number2) {
+          if (Number1 > Number3) {
+            result.innerText = `${Number1} is the Largest Numbe among ${Number1}, ${Number2}, ${Number3}`;
+          } else {
+            result.innerText = `${Number3} is the Largest Numbe among ${Number1}, ${Number2}, ${Number3}`;
+          }
+        } else if (Number2 > Number1) {
+          if (Number2 > Number3) {
+            result.innerText = `${Number2} is the Largest Numbe among ${Number1}, ${Number2}, ${Number3}`;
+          } else {
+            result.innerText = `${Number3} is the Largest Numbe among ${Number1}, ${Number2}, ${Number3}`;
+          }
+        }else{
+          result.innerText = `Input the valid Number `;
+        }
+
+
+
+        
+      });
+    </script>
+  </body>
+</html>
