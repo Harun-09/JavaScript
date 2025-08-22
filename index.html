@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even Number</title>
+</head>
+
+<body>
+    <h2>Even Numbers from 1 to 20</h2>
+    <div id="evenNumbers"></div>
+    <h2>Fruits List</h2>
+    <div id="fruitsList"></div>
+    <h2>Reverse Count</h2>
+    <div id="reverse"></div>
+    <h2>Square Number</h2>
+    <div id="sqNo"></div>
+    <h2>Do While Example 1</h2>
+    <div id="numbers1"></div>
+    <h2>Even and Odd Numbers from 1 to 20 using for ... of</h2>
+    <div id="forOf"></div>
+      <h2>Even and Odd Numbers from 1 to 20 using for…in</h2>
+    <div id="forIn"></div>
+    <script>
+        let day = 3;
+
+        switch (day) {
+            case 1:
+                console.log("Saturday");
+                break;
+            case 2:
+                console.log("Sunday");
+                break;
+            case 3:
+                console.log("Monday");
+                break;
+            default:
+                console.log("Invalid Day");
+
+        }
+
+        var i = 1;
+        while (i <=10) {
+            console.log(i);
+            i++;
+        }
+
+        var i =2;
+       var result ="";
+        while (i<=20){
+          result +=`${i}<br>`;
+            
+            i+=2;
+        }
+
+        document.getElementById("evenNumbers").innerHTML = result;
+
+
+        var fruits = ["Mango","Banana","Apple"];
+        var i =0;
+        var output = "";
+
+        while(i<fruits.length){
+            output +=`${fruits[i]}<br>`;
+            i++
+        }
+        document.getElementById("fruitsList").innerHTML = output;
+
+
+        var i = 10;
+
+        var result = "";
+
+        while (i>=1){
+
+            result +=`${i} <br>`
+            i--;
+        }
+
+        document.getElementById("reverse").innerHTML = result;
+
+        var i = 1;
+        result = "";
+        while(i<=19){
+            result += `${i} squared = ${i*i} <br>`;
+            i++;
+        }
+
+        document.getElementById("sqNo").innerHTML = result;
+
+
+        var i=1;
+        var result = "";
+
+        do {
+            result += i + "<br>";
+            i++;
+        }while(i<=5);
+
+        document.getElementById("numbers1").innerHTML = result;
+
+        var numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+        var evenNumbers = "";
+        var oddNumbers = "";
+
+       
+
+        for (var num of numbers){
+            if (num % 2 === 0) {
+                evenNumbers +=`${num} `;
+            }else {
+                oddNumbers += `${num} `;
+            }
+        }
+
+
+         var output = `Even Numbers: ${evenNumbers} <br> Odd Numbers: ${oddNumbers}`;
+
+        document.getElementById("forOf").innerHTML = output;
+
+
+          var numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+        var evenNumbers = "";
+        var oddNumbers = "";
+
+        for (var index in numbers) { // index পাওয়া যাচ্ছে
+            var num = numbers[index]; // array value access করা হচ্ছে
+            if (num % 2 === 0) {
+                evenNumbers += `${num} `;
+            } else {
+                oddNumbers += `${num} `;
+            }
+        }
+
+        var output = `Even Numbers: ${evenNumbers}<br>Odd Numbers: ${oddNumbers}`;
+        document.getElementById("forIn").innerHTML = output;
+
+
+    </script>
+</body>
+
+</html>
